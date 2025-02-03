@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leaflet Map</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+  <style>
+    #map {
+      height: 100vh; <! -- The map container (#map) is set to 100% of the viewport height (vh). This ensures that the map fills the height of the browser window, regardless of its size. This is crucial for responsiveness, as the map dynamically adjusts when the browser window is resized. --> 
+      width: 100%; <! -- The map container spans the full width of the viewport, ensuring it always fills the screen horizontally. -->
+      margin: 0; <! -- Removes any unwanted spacing around the map container caused by browser defaults, ensuring the map starts at the very top-left corner. -->
+      padding: 0; <! -- Removes any unwanted spacing around the map container caused by browser defaults, ensuring the map starts at the very top-left corner. -->
+    }
+<! -- Body Style for Fullscreen and No Overflow-->
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden; <! -- Prevents scrollbars from appearing when the map content overflows the viewport. Without this, elements like the legend or map tiles might trigger scrollbars when they go beyond the viewport boundaries.-->
+    }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
