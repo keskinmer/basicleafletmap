@@ -31,7 +31,7 @@ conda activate leaflet
 
 python -m http.server 8000
 
-path: (leaflet) C:\Users\b1103583\OneDrive - Universität Salzburg\Desktop\PLUS\advanced_geovis\exercise\cafes_salzburg_altstadt
+path: (leaflet) <path to your file>
 
 in the browser go to: http://localhost:8000/index.html
 
