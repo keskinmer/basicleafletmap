@@ -77,6 +77,12 @@ loadGeoJSON('all-fav.geojson', cafeIcon, styleFeature);
 // Load the favcafes.geojson file
 loadGeoJSON('favcafes.geojson', favCafeIcon, null);
 
+// Add a metric scale bar at the bottom left
+L.control.scale({
+  metric: true,   // Show metric units
+  imperial: false // Hide imperial units
+}).addTo(map);
+
 // Add a title and slider for opacity control
 const sliderContainer = document.createElement('div');
 sliderContainer.style.position = 'absolute';
