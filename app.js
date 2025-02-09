@@ -151,13 +151,6 @@ slider.addEventListener('input', function (e) {
   baseMap2.setOpacity(opacity);  // 
 });
 
-// Add a metric scale bar at the bottom left
-L.control.scale({
-  metric: true,   // Show metric units
-  imperial: false // Hide imperial units
-}).addTo(map);
-
-// Add a legend
 // Add a legend
 function addLegend(map) {
   const legend = L.control({ position: 'bottomright' });

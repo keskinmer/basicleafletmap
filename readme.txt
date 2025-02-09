@@ -8,6 +8,8 @@ File Structure
 project-folder/
 ├── index.html
 ├── app.js
+├── js (optional)
+    ├── leaflet-side-by-side.js
 ├── export.geojson
 ├── favcafes.geojson
 ├── images/
@@ -25,17 +27,6 @@ project-folder/
 // Apply styling for polygons, see pointToLayer function
 // Add popups
 
-// fixing_ CORS (Cross-Origin Resource Sharing) policy_problem
-
-// Initialize the http://localhost:8000/ due to not accessing the file directory
-
-conda activate leaflet
-
-python -m http.server 8000
-
-path: (leaflet) C:\Users\b1103583\OneDrive - Universität Salzburg\Desktop\PLUS\advanced_geovis\exercise\cafes_salzburg_altstadt
-
-in the browser go to: http://localhost:8000/index.html
 
 // If the custom defined icons - the ones you upload yourself- are not appearing on the map even if you refresh
 
@@ -47,3 +38,18 @@ If your browser has cached an older version of the code or image, force a cache 
 
 // Trigger map resize when the window resizes (see app.js and index.html)
 
+
+
+//OPTIONAL (FAQ)
+
+// fixing_ CORS (Cross-Origin Resource Sharing) policy_problem
+
+// Initialize the http://localhost:8000/ due to not accessing the file directory
+
+conda activate leaflet
+
+python -m http.server 8000
+
+path: (leaflet) <path_to_your_folder>
+
+in the browser go to to view your map: http://localhost:8000/index.html
