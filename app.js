@@ -2,10 +2,35 @@
 var map = L.map('map').setView([47.7998, 13.0453], 14); // Centered on Salzburg Altstadt
 
 // Define the tile layer
-var tileLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-  opacity: 0.7 // Initial opacity
-}).addTo(map);
+
+var baseMap1 = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '&copy; OpenStreetMap contributors'
+});
+
+var baseMap2 = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+  attribution: '&copy; OpenStreetMap contributors',
+  opacity: 0.7
+});
+
+// Debugging: Check if base maps are correctly defined
+console.log("✅ Base maps defined:", baseMap1, baseMap2);
+
+// Ensure the side-by-side plugin is properly referenced
+if (typeof L.control.sideBySide !== 'undefined') { 
+    console.log("✅ Leaflet Side-by-Side plugin is loaded.");
+
+    // Add both base maps to the map (IMPORTANT)
+    baseMap1.addTo(map);
+    baseMap2.addTo(map);
+
+    // Add the Side-by-Side Control
+    L.control.sideBySide(baseMap1, baseMap2).addTo(map);
+} else {
+    console.error("❌ Error: leaflet-side-by-side plugin is missing.");
+}
+
+// Debugging: Check if map object is initialized correctly
+console.log("✅ Map initialized:", map);
 
 // Define a custom cafe icon for regular cafes
 const cafeIcon = L.icon({
@@ -123,7 +148,7 @@ document.body.appendChild(sliderContainer);
 // Listen to slider changes and update tile layer opacity
 slider.addEventListener('input', function (e) {
   const opacity = parseFloat(e.target.value);
-  tileLayer.setOpacity(opacity);
+  baseMap2.setOpacity(opacity);  // 
 });
 
 // Add a metric scale bar at the bottom left
@@ -132,6 +157,7 @@ L.control.scale({
   imperial: false // Hide imperial units
 }).addTo(map);
 
+// Add a legend
 // Add a legend
 function addLegend(map) {
   const legend = L.control({ position: 'bottomright' });
@@ -144,7 +170,7 @@ function addLegend(map) {
     div.style.boxShadow = '0 2px 5px rgba(0,0,0,0.3)';
     div.style.fontFamily = 'Palatino Linotype';
     div.style.color = 'darkgray';
-    div.style.zIndex = '1000'; // Ensure it stays visible
+    div.style.zIndex = '1000';
     div.innerHTML = `
       <h4 style="margin: 0; font-size: 12pt; color: darkgray;">Legend</h4>
       <div style="display: flex; align-items: center; margin-top: 5px;">
@@ -158,7 +184,7 @@ function addLegend(map) {
   legend.addTo(map);
 }
 
-// Add the legend to the map
+// Call the function only ONCE
 addLegend(map);
 
 // Trigger map resize when the window resizes
