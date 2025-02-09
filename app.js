@@ -18,7 +18,11 @@ const cafeIcon = L.icon({
 // Define a custom icon for favorite cafes
 const favCafeIcon = L.icon({
   iconUrl: 'images/favcafe-icon2.png', // Path to your favorite cafe icon
+<<<<<<< HEAD
   iconSize: [26, 32], // Size of the icon [width, height]
+=======
+  iconSize: [32, 26], // Size of the icon [width, height]
+>>>>>>> 37f1b62 (icon change on legend)
   iconAnchor: [16, 32], // Point of the icon which will correspond to the marker's location
   popupAnchor: [0, -32] // Point from which the popup should open relative to the iconAnchor
 });
@@ -126,6 +130,12 @@ slider.addEventListener('input', function (e) {
   tileLayer.setOpacity(opacity);
 });
 
+// Add a metric scale bar at the bottom left
+L.control.scale({
+  metric: true,   // Show metric units
+  imperial: false // Hide imperial units
+}).addTo(map);
+
 // Add a legend
 function addLegend(map) {
   const legend = L.control({ position: 'bottomright' });
@@ -142,7 +152,7 @@ function addLegend(map) {
     div.innerHTML = `
       <h4 style="margin: 0; font-size: 12pt; color: darkgray;">Legend</h4>
       <div style="display: flex; align-items: center; margin-top: 5px;">
-        <img src="images/favcafe-icon.png" alt="Fav Cafe" style="width: 24px; height: 24px; margin-right: 8px;">
+        <img src="images/favcafe-icon2.png" alt="Fav Cafe" style="width: 24px; height: 24px; margin-right: 8px;">
         <span style="font-size: 10pt;">Favorite Cafes</span>
       </div>
     `;
