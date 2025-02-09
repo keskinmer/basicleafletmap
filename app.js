@@ -19,10 +19,14 @@ const cafeIcon = L.icon({
 const favCafeIcon = L.icon({
   iconUrl: 'images/favcafe-icon2.png', // Path to your favorite cafe icon
 <<<<<<< HEAD
+<<<<<<< HEAD
   iconSize: [26, 32], // Size of the icon [width, height]
 =======
   iconSize: [32, 26], // Size of the icon [width, height]
 >>>>>>> 37f1b62 (icon change on legend)
+=======
+  iconSize: [32, 26], // Size of the icon [width, height]
+>>>>>>> 662240b09ef672262548f4baa60dc8c5dbb80d5b
   iconAnchor: [16, 32], // Point of the icon which will correspond to the marker's location
   popupAnchor: [0, -32] // Point from which the popup should open relative to the iconAnchor
 });
