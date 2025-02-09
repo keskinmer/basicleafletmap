@@ -1,6 +1,8 @@
 // use https://overpass-turbo.eu/ wizard to download the data
 // use https://leaflet-extras.github.io/leaflet-providers/preview/ to choose a tile
 
+
+
 File Structure
 
 project-folder/
@@ -31,7 +33,7 @@ conda activate leaflet
 
 python -m http.server 8000
 
-path: (leaflet) <path to your file>
+path: (leaflet) C:\Users\b1103583\OneDrive - Universität Salzburg\Desktop\PLUS\advanced_geovis\exercise\cafes_salzburg_altstadt
 
 in the browser go to: http://localhost:8000/index.html
 
