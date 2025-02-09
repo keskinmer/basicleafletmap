@@ -40,7 +40,7 @@ git push -u origin main
 | git commit -m "message"     | Save a snapshot of your project.              |
 | git branch -M main          | Rename default branch to `main`.              |
 | git remote add origin URL   | Link local project to a GitHub repository.    | e.g., https://github.com/YOUR-USERNAME/YOUR-REPO.git
-| git push -u origin main     | Upload/push code to GitHub				      |
+| git push -u origin main     | Upload/push code to GitHub		      |
 
 🔹 What’s Next?
 1. Make new changes to your code.
@@ -77,7 +77,7 @@ Does Git affect my Python code?	❌ No (Git tracks changes, but does not run Pyt
 ✔ Run Git commands (git init, git add ., git commit -m "message", etc.)
 ✔ No need to activate Anaconda environment unless running Python scripts
 
-🚀 Now you're ready to push your project to GitHub using Anaconda Command Prompt! 🎉 Let me know if you run into any issues. 😊
+🚀 Now you're ready to push your project to GitHub using Anaconda Command Prompt!
 
 
 
