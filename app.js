@@ -12,8 +12,11 @@ var baseMap2 = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{
   opacity: 0.7
 });
 
-// Debugging: Check if base maps are correctly defined
-console.log("✅ Base maps defined:", baseMap1, baseMap2);
+// Add default basemap
+baseMap1.addTo(map);
+
+// Initialize the marker cluster group
+var markers = L.markerClusterGroup();
 
 // Ensure the side-by-side plugin is properly referenced
 if (typeof L.control.sideBySide !== 'undefined') { 
@@ -28,9 +31,6 @@ if (typeof L.control.sideBySide !== 'undefined') {
 } else {
     console.error("❌ Error: leaflet-side-by-side plugin is missing.");
 }
-
-// Debugging: Check if map object is initialized correctly
-console.log("✅ Map initialized:", map);
 
 // Define a custom cafe icon for regular cafes
 const cafeIcon = L.icon({
@@ -67,8 +67,9 @@ function onEachFeature(feature, layer) {
   }
 }
 
-// Function to load GeoJSON using XHR
-function loadGeoJSON(url, icon, styleFunction) {
+
+// Function to load GeoJSON using XHR and add to marker cluster
+function loadGeoJSON(url, icon) {
   var xhr = new XMLHttpRequest();
   xhr.open('GET', url, true);
   xhr.responseType = 'json';
@@ -76,21 +77,23 @@ function loadGeoJSON(url, icon, styleFunction) {
   xhr.onload = function () {
     if (xhr.status >= 200 && xhr.status < 300) {
       var data = xhr.response;
-      L.geoJSON(data, {
-        style: styleFunction, // Apply styling if polygons
+      var geoJsonLayer = L.geoJSON(data, {
         pointToLayer: function (feature, latlng) {
-          // Use the provided icon for markers
-          return L.marker(latlng, { icon: icon });
+          var marker = L.marker(latlng, { icon: icon });
+          return marker;
         },
-        onEachFeature: onEachFeature // Add popups
-      }).addTo(map);
+        onEachFeature: onEachFeature
+      });
+
+      // Add the GeoJSON layer to the marker cluster group
+      markers.addLayer(geoJsonLayer);
     } else {
-      console.error(`Error loading ${url}: ${xhr.status} ${xhr.statusText}`);
+      console.error(`❌ Error loading ${url}: ${xhr.status} ${xhr.statusText}`);
     }
   };
 
   xhr.onerror = function () {
-    console.error(`Network error while loading ${url}`);
+    console.error(`❌ Network error while loading ${url}`);
   };
 
   xhr.send();
@@ -101,6 +104,9 @@ loadGeoJSON('all-fav.geojson', cafeIcon, styleFeature);
 
 // Load the favcafes.geojson file
 loadGeoJSON('favcafes.geojson', favCafeIcon, null);
+
+// Add the marker cluster group to the map
+map.addLayer(markers);
 
 // Add a metric scale bar at the bottom left
 L.control.scale({
