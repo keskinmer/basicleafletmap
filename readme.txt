@@ -10,6 +10,7 @@ project-folder/
 ├── app.js
 ├── js (optional)
     ├── leaflet-side-by-side.js
+├── leaflet.markercluster-1.4.1 (optional)
 ├── export.geojson
 ├── favcafes.geojson
 ├── images/
@@ -44,7 +45,7 @@ If your browser has cached an older version of the code or image, force a cache 
 
 // fixing_ CORS (Cross-Origin Resource Sharing) policy_problem
 
-// Initialize the http://localhost:8000/ due to not accessing the file directory
+// Initialize the http://localhost:8000/index.html due to not accessing the file directory
 
 conda activate leaflet
 

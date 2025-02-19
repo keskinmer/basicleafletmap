@@ -67,7 +67,6 @@ function onEachFeature(feature, layer) {
   }
 }
 
-
 // Function to load GeoJSON using XHR and add to marker cluster
 function loadGeoJSON(url, icon) {
   var xhr = new XMLHttpRequest();
@@ -172,6 +171,10 @@ function addLegend(map) {
     div.style.zIndex = '1000';
     div.innerHTML = `
       <h4 style="margin: 0; font-size: 12pt; color: darkgray;">Legend</h4>
+      <div style="display: flex; align-items: center; margin-top: 5px;">
+        <img src="images/cafe-icon.png" alt="Cafe" style="width: 25px; height: 25px; margin-right: 8px;">
+        <span style="font-size: 10pt;">Cafes</span>
+      </div>
       <div style="display: flex; align-items: center; margin-top: 5px;">
         <img src="images/favcafe-icon2.png" alt="Fav Cafe" style="width: 32px; height: 26px; margin-right: 8px;">
         <span style="font-size: 10pt;">Favorite Cafes</span>
