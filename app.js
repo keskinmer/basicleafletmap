@@ -120,8 +120,8 @@ sliderContainer.style.top = '10px';
 sliderContainer.style.left = 'unset'; // Unset the left position
 sliderContainer.style.right = '10px'; // Set the right position
 sliderContainer.style.zIndex = '1000';
-sliderContainer.style.background = 'white';
-sliderContainer.style.padding = '10px';
+sliderContainer.style.background = 'black';
+sliderContainer.style.padding = '20px';
 sliderContainer.style.borderRadius = '5px';
 sliderContainer.style.boxShadow = '0 2px 5px rgba(0,0,0,0.3)';
 
@@ -162,7 +162,7 @@ function addLegend(map) {
 
   legend.onAdd = function () {
     const div = L.DomUtil.create('div', 'legend');
-    div.style.background = 'white';
+    div.style.background = 'light gray';
     div.style.padding = '10px';
     div.style.borderRadius = '5px';
     div.style.boxShadow = '0 2px 5px rgba(0,0,0,0.3)';
