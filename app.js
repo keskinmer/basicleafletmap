@@ -127,7 +127,7 @@ sliderContainer.style.boxShadow = '0 2px 5px rgba(0,0,0,0.3)';
 
 // Add a title to the slider
 const sliderTitle = document.createElement('div');
-sliderTitle.innerText = 'Change the transparency of the base map';
+sliderTitle.innerText = 'Change the transparency of the basemap';
 sliderTitle.style.fontFamily = 'Palatino Linotype'; // Change font family
 sliderTitle.style.fontSize = '10pt'; // Change font size
 sliderTitle.style.backgroundColor = 'transparent'; // Explicitly set the background color to transparent
